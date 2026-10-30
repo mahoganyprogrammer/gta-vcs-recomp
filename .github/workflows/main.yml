@@ -16,10 +16,11 @@ jobs:
           -T ClangCL
           -DCMAKE_BUILD_TYPE=Release
 
-      - name: Build
-        run: cmake --build build --config Release
+      
       - name: Generate recompiled code
         run: python tools/build.py --recompile
+      - name: Build
+        run: cmake --build build --config Release
       - name: Test (Optional)
         run: ctest --test-dir build --output-on-failure -C Release
 
